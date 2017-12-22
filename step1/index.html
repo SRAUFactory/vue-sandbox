@@ -1,0 +1,23 @@
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <title>Vue.js Sandbox</title>
+        <link href="index.css" rel="stylesheet">
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="todoApp">
+            <h2 v-bind:style="fontStyle">{{ title }}</h2>
+            <input type="text" v-model="todo" v-on:keyup.enter="addTodo">
+            <div>
+                <div v-for="t in todos" v-bind:key="t.id" 
+                    v-bind:class="['todo-default', t.doing ? 'todo-doing' : '']"
+                    v-on:click="begin(t)">
+                    {{t.name}}
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
